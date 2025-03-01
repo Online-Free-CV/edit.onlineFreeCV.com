@@ -31,7 +31,8 @@
     "classnames": "^2.3.2",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
-    "typescript": "5.2.2"
+    "typescript": "5.2.2",
+    "webpack": "^5.98.0"
   },
   "config": {
     "commitizen": {
