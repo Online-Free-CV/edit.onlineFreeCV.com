@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "predeploy": "pnpm run build",
-    "deploy": "gh-pages -d out -r https://$GH_TOKEN@github.com/Online-Free-CV/edit.onlineFreeCV.com.git",
+    "deploy": "gh-pages -d dist -r https://$GH_TOKEN@github.com/Online-Free-CV/edit.onlineFreeCV.com.git",
     "start": "next start",
     "lint": "next lint",
     "commit": "git add . && npx cz",

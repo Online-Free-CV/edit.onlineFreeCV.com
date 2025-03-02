@@ -7,7 +7,7 @@ const {
 
 const nextConfig = {
   output: 'export',
-  distDir: "build",
+  distDir: "dist",
   // basePath: `/${process.env.GITHUB_REPO_NAME}`,
   // assetPrefix:`/${process.env.GITHUB_REPO_NAME}/` ,
   
