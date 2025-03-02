@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 
-const {
-    createVanillaExtractPlugin
-  } = require('@vanilla-extract/next-plugin');
-  const withVanillaExtract = createVanillaExtractPlugin();
+const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
+const withVanillaExtract = createVanillaExtractPlugin();
+const fs = require('fs');
+const path = require('path');
 
 const nextConfig = {
   output: 'export',
@@ -29,12 +29,19 @@ const nextConfig = {
       },
     ],
   },
-  future: { webpack5: true },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-      config.resolve.alias.canvas = false
-      config.resolve.alias.encoding = false
-      return config
+    config.resolve.alias.canvas = false;
+    config.resolve.alias.encoding = false;
+    return config;
+  },
+  async generateStaticParams() {
+    const outDir = path.join(__dirname, 'build');
+    if (!fs.existsSync(outDir)) {
+      fs.mkdirSync(outDir, { recursive: true });
+    }
+    fs.copyFileSync(path.join(__dirname, 'CNAME'), path.join(outDir, 'CNAME'));
+    return [];
   }
-}
+};
 
 module.exports = withVanillaExtract(nextConfig);
