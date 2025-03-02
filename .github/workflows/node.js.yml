@@ -38,3 +38,5 @@ jobs:
           pnpm run deploy
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NEXT_PUBLIC_GOOGLE_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_CLIENT_ID }}
+          NEXT_PUBLIC_GOOGLE_API_KEY: ${{ secrets.NEXT_PUBLIC_GOOGLE_API_KEY }}
