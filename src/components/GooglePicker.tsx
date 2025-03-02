@@ -12,6 +12,7 @@ declare global {
 
 interface GooglePickerProps {
   setImageUrl: (url: string) => void;
+  accessToken: string | null;
 }
 
 const GooglePicker: React.FC<GooglePickerProps> = ({ setImageUrl }) => {
