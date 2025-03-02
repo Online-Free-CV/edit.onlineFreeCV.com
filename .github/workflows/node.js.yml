@@ -1,0 +1,40 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [17.0.0]
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7.13.4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+
+      - run: pnpm install
+      - run: pnpm run predeploy
+
+      - name: Deploy 🚀
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "github-actions"
+          git remote set-url origin https://$GH_TOKEN@github.com/Online-Free-CV/edit.onlineFreeCV.com.git
+          pnpm run deploy
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
