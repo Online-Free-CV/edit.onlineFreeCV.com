@@ -6,10 +6,10 @@ const {
   const withVanillaExtract = createVanillaExtractPlugin();
 
 const nextConfig = {
-  // output: 'export',
-  distDir: "build",
-  // basePath: `/${process.env.GITHUB_REPO_NAME}`,
-  // assetPrefix:`/${process.env.GITHUB_REPO_NAME}/` ,
+  output: 'export',
+  distDir: "dist",
+  basePath: `/${process.env.GITHUB_REPO_NAME}`,
+  assetPrefix:`/${process.env.GITHUB_REPO_NAME}/` ,
   
   experimental: {
     appDir: true,
