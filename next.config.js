@@ -8,8 +8,8 @@ const {
 const nextConfig = {
   output: 'export',
   distDir: "dist",
-  // basePath: `/${process.env.GITHUB_REPO_NAME}`,
-  // assetPrefix:`/${process.env.GITHUB_REPO_NAME}/` ,
+  basePath: `/${process.env.GITHUB_REPO_NAME}`,
+  assetPrefix:`/${process.env.GITHUB_REPO_NAME}/` ,
   
   experimental: {
     appDir: true,
