@@ -7,7 +7,7 @@ import { bodyStyle, containerStyle, mainStyle, sectionStyle } from "@/styles";
 import GoogleLoginRedirect from "@/components/GoogleLoginRedirect";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<any>({});
   useEffect(() => {
     const userData = localStorage.getItem("user");
     if (userData) {

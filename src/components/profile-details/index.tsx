@@ -41,7 +41,7 @@ export const ProfileCard = () => {
         className={profileImageStyle}
         alt={data.name}
       />
-      <GooglePicker setImageUrl={setImageUrl} accessToken={data.access_token} />
+      {/* <GooglePicker setImageUrl={setImageUrl} accessToken={data.access_token} /> */}
       <div className={cx(detailsContainerStyle)}>
         <Text
           variant="h2"
