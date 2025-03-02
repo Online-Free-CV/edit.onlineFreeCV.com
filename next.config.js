@@ -6,8 +6,8 @@ const fs = require('fs');
 const path = require('path');
 
 const nextConfig = {
-  // output: 'export',
-  // distDir: "build",
+  output: 'export',
+  distDir: "build",
   // basePath: `/${process.env.GITHUB_REPO_NAME}`,
   // assetPrefix:`/${process.env.GITHUB_REPO_NAME}/` ,
   
