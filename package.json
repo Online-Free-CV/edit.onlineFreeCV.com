@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "predeploy": "pnpm run build",
+    "deploy": "gh-pages -d dist",
     "start": "next start",
     "lint": "next lint",
     "commit": "git add . && npx cz",
@@ -31,6 +33,7 @@
     "classnames": "^2.3.2",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
+    "gh-pages": "^6.3.0",
     "typescript": "5.2.2",
     "webpack": "^5.98.0"
   },
