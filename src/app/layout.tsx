@@ -10,7 +10,7 @@ import { Appform } from "@/components/form/Appform";
 import * as Yup from 'yup';
 
 const validationSchema = Yup.object().shape({
-  firstName: Yup.string().required('First Name is required'),
+  first_name: Yup.string().required('First Name is required'),
 });
 
 const AppContent = ({ children }: { children: React.ReactNode }) => {
@@ -40,7 +40,7 @@ const AppContent = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<any>(false);
+  const [user, setUser] = useState<any>(true);
   useEffect(() => {
     const userData = localStorage.getItem("user");
     if (userData) {

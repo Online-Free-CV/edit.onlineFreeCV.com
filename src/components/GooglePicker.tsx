@@ -26,7 +26,7 @@ const GooglePicker: React.FC<GooglePickerProps> = ({ setImageUrl }) => {
     document.body.appendChild(script);
 
     const getAccessToken = async () => {
-        debugger;
+        
       let token = localStorage.getItem("google_oauth_token") && JSON.parse(localStorage.getItem("google_oauth_token")!).token;
 
       if (!token) {
