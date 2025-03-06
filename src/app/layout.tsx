@@ -7,10 +7,11 @@ import "@onlinefreecv/design-system/style.css"; // ✅ Import global styles
 import { bodyStyle, containerStyle, mainStyle, sectionStyle } from "@/styles";
 import GoogleLoginRedirect from "@/components/GoogleLoginRedirect";
 import { Appform } from "@/components/form/Appform";
-import * as Yup from 'yup';
+import * as Yup from "yup";
 
 const validationSchema = Yup.object().shape({
-  first_name: Yup.string().required('First Name is required'),
+  first_name: Yup.string().required("First Name is required"),
+  last_name: Yup.string().required("Last Name is required"),
 });
 
 const AppContent = ({ children }: { children: React.ReactNode }) => {
@@ -39,7 +40,11 @@ const AppContent = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [user, setUser] = useState<any>(true);
   useEffect(() => {
     const userData = localStorage.getItem("user");
