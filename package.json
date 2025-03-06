@@ -14,6 +14,7 @@
     "build:push": "./build-and-push.sh"
   },
   "dependencies": {
+    "@onlinefreecv/design-system": "^1.0.4",
     "@types/react-dom": "18.2.7",
     "@vanilla-extract/css": "^1.13.0",
     "@vanilla-extract/recipes": "^0.5.0",
@@ -24,7 +25,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-pdf": "^7.7.0",
-    "sharp": "^0.33.2"
+    "sharp": "^0.33.2",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@types/node": "20.6.1",
@@ -33,6 +35,7 @@
     "classnames": "^2.3.2",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
+    "formik": "^2.4.6",
     "gh-pages": "^6.3.0",
     "typescript": "5.2.2",
     "webpack": "^5.98.0"

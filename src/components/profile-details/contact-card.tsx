@@ -10,7 +10,7 @@ import {
 } from "@/styles";
 import { Raleway } from "next/font/google";
 import cx from "classnames";
-import { Text } from "@/components";
+import { Text } from "@onlinefreecv/design-system";
 import { useDataContext } from "@/context/data-provider";
 
 const raleway = Raleway({

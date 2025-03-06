@@ -24,10 +24,11 @@ const GoogleLoginRedirect = ({ onLoginSuccess }: { onLoginSuccess: (user: any) =
   }, [onLoginSuccess, router]);
 
   const redirectToGoogle = () => {
+    console.log("🔴 Redirecting to Google for login...", process.env.NEXT_REDIRECTION_URL);
     const oauth2Endpoint = "https://accounts.google.com/o/oauth2/auth";
     const params = new URLSearchParams({
       client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!,
-      redirect_uri: "https://edit.onlinefreecv.com", // ✅ Redirecting to the homepage
+      redirect_uri: process.env.NEXT_REDIRECTION_URL || "http://localhost:3000", // ✅ Redirecting to the homepage
       response_type: "token",
       scope: [
         "openid",
