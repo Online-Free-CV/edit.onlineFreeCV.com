@@ -20,6 +20,7 @@ export const breakpoints = {
 
 export const size = {
   zero: `0`,
+  none: `0`,
   xs: `0.25rem`,
   sm: `0.5rem`,
   md: `1rem`,

@@ -13,7 +13,7 @@ import cx from "classnames";
 import { Raleway } from "next/font/google";
 import { ContactCard } from "./contact-card";
 import { Socials } from "./socials";
-import { Text } from "@/components";
+import { Text } from "@onlinefreecv/design-system";
 import { useDataContext } from "@/context/data-provider";
 import { useState } from "react";
 import GooglePicker from "../GooglePicker";
