@@ -12,6 +12,8 @@ import { Raleway } from "next/font/google";
 import cx from "classnames";
 import { Text } from "@onlinefreecv/design-system";
 import { useDataContext } from "@/context/data-provider";
+import { EditableField } from "../form/EditableField";
+import { Container } from "@onlinefreecv/design-system";
 
 const raleway = Raleway({
   weight: "500",
@@ -21,42 +23,44 @@ const raleway = Raleway({
 interface IContactCardItemProps {
   children: React.ReactNode;
   label: string;
+  name: string;
   data: string;
 }
 
 export const ContactCardItem: React.FC<IContactCardItemProps> = ({
   children,
   label,
+  name,
   data,
 }: IContactCardItemProps) => (
-  <div className={contactCardStyle}>
+  <Container variant="wrapper" direction="rtl" className={contactCardStyle}>
     {children}
     <div className={cx(contactCardDataStyle, raleway.className)}>
       <Text variant="body1" className={cx(contactCardLabelStyle)}>
         {label}
       </Text>
       <Text variant="body1" className={cx(raleway.className)}>
-        {data}
+        <EditableField name={name}>{data}</EditableField>
       </Text>
     </div>
-  </div>
+  </Container>
 );
 
 export const ContactCard = () => {
   const {data} = useDataContext();
   return (
-    <div className={contactCardContainerStyle}>
+    <Container variant="wrapper" className={contactCardContainerStyle}>
       <div className={contactCardWrapperStyle}>
-        <ContactCardItem label="Phone" data={data.phone_number}>
+        <ContactCardItem label="Phone" name="phone_number" data={data.phone_number}>
           <Phone />
         </ContactCardItem>
-        <ContactCardItem label="Email" data={data.email}>
+        <ContactCardItem label="Email" name="email" data={data.email}>
           <Email />
         </ContactCardItem>
-        <ContactCardItem label="Location" data={data.location}>
+        <ContactCardItem label="Location" name="location" data={data.location}>
           <Location />
         </ContactCardItem>
       </div>
-    </div>
+    </Container>
   );
 };

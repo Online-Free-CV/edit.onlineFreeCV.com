@@ -8,7 +8,8 @@ export const contactCardContainerStyle = style({
 export const contactCardWrapperStyle = style({
   backgroundColor: tokens.colors.blueGray,
   borderRadius: tokens.radii.md,
-  padding: tokens.space.lg
+  padding: tokens.space.lg,
+  width: tokens.size.full,
 });
 
 export const contactCardStyle = style({
@@ -16,7 +17,8 @@ export const contactCardStyle = style({
   marginBottom: tokens.space.md,
   paddingBottom: tokens.space.md,
   borderBottom: `${tokens.border.base} ${tokens.colors.lightGray}`,
-  alignItems: "center"
+  alignItems: "inherit",
+  gap: tokens.space.md,
 });
 
 export const contactCardLabelStyle = style({
@@ -26,7 +28,7 @@ export const contactCardLabelStyle = style({
 
 export const contactCardDataStyle = style({
   width: '100%',
-  textAlign: 'left',
+  textAlign: 'inherit',
   paddingLeft: '22px'
 });
 

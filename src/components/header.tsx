@@ -8,7 +8,7 @@ import { Text } from "@onlinefreecv/design-system";
 import { useDataContext } from "@/context/data-provider";
 import { InputField } from "./form/InputField";
 import { EditableField } from "./form/EditableField";
-import { useFormik } from "formik";
+import { useFormik, useFormikContext } from "formik";
 
 const titleFont = Pacifico({
   weight: "400",
@@ -16,18 +16,16 @@ const titleFont = Pacifico({
 });
 
 export const Header = () => {
-  // const [isEditing, setIsEditing] = useState(false);
-  const { data } = useDataContext();
+   const { values } = useFormikContext<any>();
 
   return (
     <div
       className={cx(titleFont.className, headerStyle)}
-      // onClick={() => setIsEditing(true)}
     >
       <Text variant="h1">
-        <EditableField name="first_name">{data.first_name}</EditableField>{" "}
+        <EditableField name="first_name">{values.first_name}</EditableField>{" "}
         <span className={headerTitleStyle}>
-          <EditableField name="last_name">{data.last_name}</EditableField>
+          <EditableField name="last_name">{values.last_name}</EditableField>
         </span>
       </Text>
     </div>
