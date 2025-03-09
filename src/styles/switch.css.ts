@@ -3,51 +3,75 @@ import { tokens } from "@/configs/vanilla.css";
 
 export const switchContainer = style({
   display: "flex",
-  justifyContent: "flex-end",
-  padding: tokens.size.sm, // Corresponds to "0.5rem"
+  alignItems: "center",
+  gap: tokens.size.xs,
+  padding: tokens.size.xs,
 });
 
 export const switchLabel = style({
   position: "relative",
   display: "inline-block",
-  width: tokens.size.xxl, // Corresponds to "2.5rem"
-  height: tokens.size.xl, // Corresponds to "1.75rem"
+  width: "70px", // Increased width for more text space
+  height: "30px", // Increased height for better proportions
 });
 
 globalStyle(`${switchLabel} input`, {
-  opacity: tokens.size.zero,
-  width: tokens.size.zero,
-  height: tokens.size.zero,
+  opacity: 0,
+  width: 0,
+  height: 0,
 });
 
 export const slider = style({
   position: "absolute",
   cursor: "pointer",
-  top: tokens.size.zero,
-  left: tokens.size.zero,
-  right: tokens.size.zero,
-  bottom: tokens.size.zero,
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
   backgroundColor: "#ccc",
-  transition: "0.4s",
-  borderRadius: tokens.size.xl, // Corresponds to "1.75rem"
+  transition: "0.3s",
+  borderRadius: "34px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  fontSize: "14px",
+  fontWeight: "bold",
+  color: "#fff",
+  padding: "0 10px", // Ensures text stays inside
 });
 
 export const sliderBefore = style({
   position: "absolute",
   content: '""',
-  height: tokens.size.lg, // Corresponds to "1.5rem"
-  width: tokens.size.lg, // Corresponds to "1.5rem"
-  left: tokens.size.xs, // Corresponds to "0.25rem"
-  bottom: tokens.size.xs, // Corresponds to "0.25rem"
+  height: "24px",
+  width: "24px",
+  left: "3px",
+  bottom: "3px",
   backgroundColor: "white",
-  transition: "0.4s",
+  transition: "0.3s",
   borderRadius: "50%",
+  boxShadow: "0 1px 3px rgba(0,0,0,0.3)",
 });
 
 globalStyle(`${switchLabel} input:checked + .${slider}`, {
-  backgroundColor: "#2196f3",
+  backgroundColor: "#2196F3",
 });
 
 globalStyle(`${switchLabel} input:checked + .${slider}::before`, {
-  transform: `translateX(${tokens.size.lg})`, // Corresponds to "1.5rem"
+  transform: "translateX(38px)", // Adjust movement for bigger switch
+});
+
+globalStyle(`${switchLabel} input + .${slider}::after`, {
+  content: '"English"', // Default text inside switch
+  position: "absolute",
+  left: "10px",
+  color: "#000",
+});
+
+globalStyle(`${switchLabel} input:checked + .${slider}::after`, {
+  content: '"اردو"', // Urdu text inside when switched
+  position: "absolute",
+  right: "10px",
+  textAlign: "right",
+  color: "#fff",
 });

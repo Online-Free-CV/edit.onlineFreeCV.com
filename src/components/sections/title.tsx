@@ -12,10 +12,10 @@ interface ITitleProps {
   title: string;
 }
 export const Title = ({ title }: ITitleProps) => (
-  <Container variant="wrapper" direction="rtl" className={cx(sectionDetailsTitleStyle, poppins.className)}>
+  <div className={cx(sectionDetailsTitleStyle, poppins.className)}>
     <Text variant="h1" >
       {title}
     </Text>
     <span></span>
-  </Container>
+  </div>
 );

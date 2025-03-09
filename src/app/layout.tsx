@@ -13,6 +13,14 @@ import * as Yup from "yup";
 const validationSchema = Yup.object().shape({
   first_name: Yup.string().required("First Name is required"),
   last_name: Yup.string().required("Last Name is required"),
+  full_name: Yup.string().required("Full Name is required"),
+  current_position: Yup.string().required("Current Position is required"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  phone_number: Yup.string().required("Phone Number is required"),
+  summary: Yup.string().required("Summary is required"),
+  about_me: Yup.string().required("About Me is required"),
+  direction: Yup.string().required("Direction is required"),
+  picture: Yup.string().required("Picture is required"),
 });
 
 const AppContent = ({ children }: { children: React.ReactNode }) => {
@@ -27,17 +35,17 @@ const AppContent = ({ children }: { children: React.ReactNode }) => {
       }}
       validationSchema={validationSchema}
     >
-      {/* <Switch /> */}
+      <Switch />
       <main className={mainStyle}>
 
         <Header />
-        <Container variant="wrapper"  className={containerStyle}>
+        <div className={containerStyle}>
           <ProfileCard />
           <div className={sectionStyle}>
             <Navbar />
             {children}
           </div>
-        </Container>
+        </div>
       </main>
     </Appform>
   );

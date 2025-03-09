@@ -24,6 +24,6 @@ export const editableFieldStyle = styleVariants({
   ],
   error: [
     baseStyle,
-    { outline: "1px solid red", paddingLeft: "10px", paddingRight: "10px" },
+    { outline: "1px solid red", paddingLeft: "10px", minWidth: '30px', height: '20px', paddingRight: "10px", display: "inline-block" },
   ],
 });

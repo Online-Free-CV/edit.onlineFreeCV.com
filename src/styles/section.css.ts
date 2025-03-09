@@ -6,7 +6,7 @@ export const sectionStyle = style({
 });
 
 export const sectionDetailsStyle = style({
-  height: `calc(${tokens.size.full} - 250px)`,
+  minHeight: `calc(${tokens.size.full} - 250px)`,
   backgroundColor: tokens.colors.white,
   borderRadius: tokens.radii.md,
   padding: `${tokens.space.sm} ${tokens.space.xxl}`,

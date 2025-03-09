@@ -5,9 +5,13 @@ import { useFormikContext } from "formik";
 const Switch: React.FC = () => {
     const { values, setFieldValue } = useFormikContext<any>();
 
+    React.useEffect(() => { 
+        document.documentElement.dir = values.direction;
+    }
+    , [values.direction]);
+
     const handleChangeDirection = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const direction = e.target.checked ? "ltr" : "rtl";
-        document.documentElement.dir = direction;
+        const direction = e.target.checked ? "rtl" : "ltr";
         setFieldValue("direction", direction);
     };
   return (
@@ -15,6 +19,7 @@ const Switch: React.FC = () => {
       <label className={switchLabel}>
         <input
           type="checkbox"
+          checked={values.direction === "rtl"}
           onChange={handleChangeDirection}
         />
         <span className={slider}></span>

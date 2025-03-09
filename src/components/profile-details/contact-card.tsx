@@ -14,6 +14,7 @@ import { Text } from "@onlinefreecv/design-system";
 import { useDataContext } from "@/context/data-provider";
 import { EditableField } from "../form/EditableField";
 import { Container } from "@onlinefreecv/design-system";
+import { useFormikContext } from "formik";
 
 const raleway = Raleway({
   weight: "500",
@@ -24,16 +25,16 @@ interface IContactCardItemProps {
   children: React.ReactNode;
   label: string;
   name: string;
-  data: string;
 }
 
 export const ContactCardItem: React.FC<IContactCardItemProps> = ({
   children,
   label,
   name,
-  data,
-}: IContactCardItemProps) => (
-  <Container variant="wrapper" direction="rtl" className={contactCardStyle}>
+}: IContactCardItemProps) => {
+  const {values} = useFormikContext<any>();
+  return(
+  <div className={contactCardStyle}>
     {children}
     <div className={cx(contactCardDataStyle, raleway.className)}>
       <Text variant="body1" className={cx(contactCardLabelStyle)}>
@@ -43,21 +44,21 @@ export const ContactCardItem: React.FC<IContactCardItemProps> = ({
         <EditableField name={name} />
       </Text>
     </div>
-  </Container>
-);
+  </div>
+)};
 
 export const ContactCard = () => {
-  const {data} = useDataContext();
+  const {values} = useFormikContext<any>();
   return (
-    <Container variant="wrapper" className={contactCardContainerStyle}>
+    <Container variant="wrapper" direction={values.direction} className={contactCardContainerStyle}>
       <div className={contactCardWrapperStyle}>
-        <ContactCardItem label="Phone" name="phone_number" data={data.phone_number}>
+        <ContactCardItem label="Phone" name="phone_number">
           <Phone />
         </ContactCardItem>
-        <ContactCardItem label="Email" name="email" data={data.email}>
+        <ContactCardItem label="Email" name="email">
           <Email />
         </ContactCardItem>
-        <ContactCardItem label="Location" name="location" data={data.location}>
+        <ContactCardItem label="Location" name="location">
           <Location />
         </ContactCardItem>
       </div>

@@ -14,9 +14,7 @@ const titleFont = Pacifico({
 export const Header = () => {
 
   return (
-    <Container
-    direction="rtl"
-    variant="wrapper"
+    <div
       className={cx(titleFont.className, headerStyle)}
     >
       <Text variant="h1">
@@ -25,6 +23,6 @@ export const Header = () => {
           <EditableField name="last_name" />
         </span>
       </Text>
-    </Container>
+    </div>
   );
 };
