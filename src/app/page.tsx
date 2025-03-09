@@ -6,6 +6,7 @@ import { sectionDetailsStyle, summaryStyle } from "@/styles";
 import { Raleway } from "next/font/google";
 import cx from "classnames";
 import { useDataContext } from "@/context/data-provider";
+import { Container } from "@onlinefreecv/design-system";
 
 const raleway = Raleway({
   subsets: ["latin"],

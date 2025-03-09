@@ -40,7 +40,7 @@ export const ContactCardItem: React.FC<IContactCardItemProps> = ({
         {label}
       </Text>
       <Text variant="body1" className={cx(raleway.className)}>
-        <EditableField name={name}>{data}</EditableField>
+        <EditableField name={name} />
       </Text>
     </div>
   </Container>

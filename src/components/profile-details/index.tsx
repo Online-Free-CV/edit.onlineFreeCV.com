@@ -48,15 +48,13 @@ export const ProfileCard = () => {
           variant="h2"
           className={cx(railwayTitle.className, profileDetailsTileStyle)}
         >
-          <EditableField name="full_name">{values.full_name}</EditableField>
+          <EditableField name="full_name" />
         </Text>
         <Text
           variant="display"
           className={cx(railwaySubTitle.className, profileDetailsSubTileStyle)}
         >
-          <EditableField name="current_position">
-          {values.current_position}
-          </EditableField>
+          <EditableField name="current_position" />
         </Text>
         <Socials />
         <ContactCard />

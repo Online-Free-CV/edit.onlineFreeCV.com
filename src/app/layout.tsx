@@ -1,12 +1,13 @@
 "use client";
-import { useEffect, useState } from "react";
-import { Header, ProfileCard, Sections } from "@/components";
-import { Navbar } from "@/components/sections/navbar";
-import { DataProvider, useDataContext } from "@/context/data-provider";
-import "@onlinefreecv/design-system/style.css"; // ✅ Import global styles
-import { bodyStyle, containerStyle, mainStyle, sectionStyle } from "@/styles";
+import { Header, ProfileCard, Switch } from "@/components";
 import GoogleLoginRedirect from "@/components/GoogleLoginRedirect";
 import { Appform } from "@/components/form/Appform";
+import { Navbar } from "@/components/sections/navbar";
+import { DataProvider, useDataContext } from "@/context/data-provider";
+import { bodyStyle, containerStyle, mainStyle, sectionStyle } from "@/styles";
+import "@onlinefreecv/design-system/style.css"; // ✅ Import global styles
+import { useEffect, useState } from "react";
+import { Container } from "@onlinefreecv/design-system";
 import * as Yup from "yup";
 
 const validationSchema = Yup.object().shape({
@@ -26,15 +27,17 @@ const AppContent = ({ children }: { children: React.ReactNode }) => {
       }}
       validationSchema={validationSchema}
     >
+      {/* <Switch /> */}
       <main className={mainStyle}>
+
         <Header />
-        <div className={containerStyle}>
+        <Container variant="wrapper"  className={containerStyle}>
           <ProfileCard />
           <div className={sectionStyle}>
             <Navbar />
             {children}
           </div>
-        </div>
+        </Container>
       </main>
     </Appform>
   );

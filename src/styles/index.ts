@@ -20,3 +20,4 @@ export {
 export { headerStyle, headerTitleStyle } from "./header.css";
 export { headingRecipe } from "./heading.css";
 export { mainStyle, containerStyle, bodyStyle } from "./main.css";
+export { switchLabel, slider, switchContainer, sliderBefore } from "./switch.css"
