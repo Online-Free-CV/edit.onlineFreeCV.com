@@ -27,7 +27,7 @@ export const floatingBar = style({
   background: "white",
   boxShadow: tokens.boxShadow.md,
   display: "flex",
-  justifyContent: "center",
+  justifyContent: "space-between",
   alignItems: "center",
   zIndex: 1000,
   animation: `${slideDown} 0.5s cubic-bezier(0.4, 0, 0.2, 1)`,

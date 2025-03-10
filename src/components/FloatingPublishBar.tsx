@@ -1,10 +1,10 @@
-import React from "react";
-import { useFormikContext } from "formik";
 import { floatingBar, floatingBarExit, publishButton } from "@/styles/";
 import { Text } from "@onlinefreecv/design-system";
+import { useFormikContext } from "formik";
+import React from "react";
 
 export const FloatingPublishBar = () => {
-  const { submitForm, dirty } = useFormikContext();
+  const { dirty } = useFormikContext();
   const [isVisible, setIsVisible] = React.useState(false);
   const [isExiting, setIsExiting] = React.useState(false);
 
@@ -23,7 +23,8 @@ export const FloatingPublishBar = () => {
 
   return (
     <div className={`${floatingBar} ${isExiting ? floatingBarExit : ""}`}>
-      <button onClick={() => submitForm()} className={publishButton}>
+      <Text variant="h2">Online Free CV</Text>
+      <button className={publishButton} type="submit">
         <Text variant="body1">Publish Changes</Text>
       </button>
     </div>

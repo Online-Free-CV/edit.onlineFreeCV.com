@@ -20,7 +20,7 @@ const validationSchema = Yup.object().shape({
   summary: Yup.string().required("Summary is required"),
   about_me: Yup.string().required("About Me is required"),
   direction: Yup.string().required("Direction is required"),
-  picture: Yup.string().required("Picture is required"),
+  // picture: Yup.string().required("Picture is required"),
 });
 
 const AppContent = ({ children }: { children: React.ReactNode }) => {
@@ -34,8 +34,8 @@ const AppContent = ({ children }: { children: React.ReactNode }) => {
         actions.setSubmitting(false);
       }}
       validationSchema={validationSchema}
+      
     >
-      <FloatingPublishBar />
       <main className={mainStyle}>
         <Switch />
         <Header />

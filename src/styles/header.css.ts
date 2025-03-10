@@ -6,7 +6,12 @@ export const headerStyle = style({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  margin: `${tokens.space.md} 0`
+  margin: `${tokens.space.md} 0`,
+  "@media": {
+    "screen and (max-width: 767px)": {
+      justifyContent: "center",
+    },
+  },
 });
 
 export const headerTitleStyle = style({
@@ -14,5 +19,5 @@ export const headerTitleStyle = style({
   backgroundClip: "text",
   WebkitTextFillColor: "transparent",
   padding: `0 ${tokens.space.xs}`,
-  color: tokens.colors.fireEngineRed
+  color: tokens.colors.fireEngineRed,
 });

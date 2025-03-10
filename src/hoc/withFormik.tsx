@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Formik, Form } from "formik";
+import { FloatingPublishBar } from "@/components/FloatingPublishBar";
 
 interface WithFormikProps<T> {
   initialValues: T;
@@ -26,11 +27,9 @@ export const withFormik = <T extends object>(
       >
         {({ values, isSubmitting }) => (
           <Form>
+            <FloatingPublishBar />
             <WrappedComponent values={values} />
             {children} {/* ✅ Pass children inside the Formik wrapper */}
-            <button type="submit" disabled={isSubmitting}>
-              Submit
-            </button>
           </Form>
         )}
       </Formik>
