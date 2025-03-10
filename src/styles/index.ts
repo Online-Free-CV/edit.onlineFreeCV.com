@@ -1,6 +1,11 @@
 export { summaryStyle } from "./home.css";
 export { textRecipe } from "./text.css";
-export { navbarStyle, navbarlistStyle, navbarItemStyle, navbarItemLinkStyle } from "./navbar.css";
+export {
+  navbarStyle,
+  navbarlistStyle,
+  navbarItemStyle,
+  navbarItemLinkStyle,
+} from "./navbar.css";
 export {
   contactCardStyle,
   contactCardWrapperStyle,
@@ -9,7 +14,11 @@ export {
   contactCardDataStyle,
 } from "./contact-card.css";
 export { socialsStyle, socialItemStyle } from "./socials.css";
-export { sectionStyle, sectionDetailsStyle, sectionDetailsTitleStyle } from "./section.css";
+export {
+  sectionStyle,
+  sectionDetailsStyle,
+  sectionDetailsTitleStyle,
+} from "./section.css";
 export {
   profileCardStyle,
   profileImageStyle,
@@ -20,4 +29,14 @@ export {
 export { headerStyle, headerTitleStyle } from "./header.css";
 export { headingRecipe } from "./heading.css";
 export { mainStyle, containerStyle, bodyStyle } from "./main.css";
-export { switchLabel, slider, switchContainer, sliderBefore } from "./switch.css"
+export {
+  switchLabel,
+  slider,
+  switchContainer,
+  sliderBefore,
+} from "./switch.css";
+export {
+  floatingBar,
+  publishButton,
+  floatingBarExit,
+} from "./floating-publish-bar.css";

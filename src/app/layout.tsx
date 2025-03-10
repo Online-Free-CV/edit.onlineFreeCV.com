@@ -1,5 +1,6 @@
 "use client";
 import { Header, ProfileCard, Switch } from "@/components";
+import { FloatingPublishBar } from "@/components/FloatingPublishBar";
 import GoogleLoginRedirect from "@/components/GoogleLoginRedirect";
 import { Appform } from "@/components/form/Appform";
 import { Navbar } from "@/components/sections/navbar";
@@ -7,7 +8,6 @@ import { DataProvider, useDataContext } from "@/context/data-provider";
 import { bodyStyle, containerStyle, mainStyle, sectionStyle } from "@/styles";
 import "@onlinefreecv/design-system/style.css"; // ✅ Import global styles
 import { useEffect, useState } from "react";
-import { Container } from "@onlinefreecv/design-system";
 import * as Yup from "yup";
 
 const validationSchema = Yup.object().shape({
@@ -35,9 +35,9 @@ const AppContent = ({ children }: { children: React.ReactNode }) => {
       }}
       validationSchema={validationSchema}
     >
-      <Switch />
+      <FloatingPublishBar />
       <main className={mainStyle}>
-
+        <Switch />
         <Header />
         <div className={containerStyle}>
           <ProfileCard />
