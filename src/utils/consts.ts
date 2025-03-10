@@ -11,16 +11,6 @@ export const ROUTES: IRouteProps[] = [
         name: "Home"
     },
     {
-        url: "/resume",
-        label: "Resume",
-        name: "Resume"
-    },
-    {
-        url: "/portfolio",
-        label: "Portfolio",
-        name: "Portfolio"
-    },
-    {
         url: "/contact",
         label: "Contact",
         name: "Contact"
