@@ -27,7 +27,7 @@ export const withFormik = <T extends object>(
       >
         {({ values, isSubmitting }) => (
           <Form>
-            <FloatingPublishBar />
+            <FloatingPublishBar isSubmitting={isSubmitting} />
             <WrappedComponent values={values} />
             {children} {/* ✅ Pass children inside the Formik wrapper */}
           </Form>

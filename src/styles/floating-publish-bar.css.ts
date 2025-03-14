@@ -49,4 +49,7 @@ export const publishButton = style({
   cursor: "pointer",
   color: tokens.colors.white,
   fontSize: tokens.fontWeight.bold,
+  minWidth: 150,
+  display: "flex",
+  justifyContent: "center",
 });

@@ -26,15 +26,18 @@ const validationSchema = Yup.object().shape({
 const AppContent = ({ children }: { children: React.ReactNode }) => {
   const { data } = useDataContext();
 
+  const handleSubmit = async (values: any, actions: any) => {
+    actions.setSubmitting(true);
+    console.log("Form submitted with:", values);
+    await new Promise((resolve) => setTimeout(resolve, 5000)); // Mock API call
+    actions.setSubmitting(false);
+  };
+
   return (
     <Appform
       initialValues={data}
-      onSubmit={(values, actions) => {
-        console.log("Form submitted with:", values);
-        actions.setSubmitting(false);
-      }}
+      onSubmit={handleSubmit}
       validationSchema={validationSchema}
-      
     >
       <main className={mainStyle}>
         <Switch />

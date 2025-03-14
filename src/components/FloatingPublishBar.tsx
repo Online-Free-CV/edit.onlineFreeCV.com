@@ -1,9 +1,15 @@
 import { floatingBar, floatingBarExit, publishButton } from "@/styles/";
-import { Text } from "@onlinefreecv/design-system";
+import { Text, Spinner } from "@onlinefreecv/design-system";
 import { useFormikContext } from "formik";
 import React from "react";
 
-export const FloatingPublishBar = () => {
+interface FloatingPublishBarProps {
+  isSubmitting: boolean;
+}
+
+export const FloatingPublishBar: React.FC<FloatingPublishBarProps> = ({
+  isSubmitting,
+}) => {
   const { dirty } = useFormikContext();
   const [isVisible, setIsVisible] = React.useState(false);
   const [isExiting, setIsExiting] = React.useState(false);
@@ -24,8 +30,10 @@ export const FloatingPublishBar = () => {
   return (
     <div className={`${floatingBar} ${isExiting ? floatingBarExit : ""}`}>
       <Text variant="h2">Online Free CV</Text>
-      <button className={publishButton} type="submit">
-        <Text variant="body1">Publish Changes</Text>
+      <button className={publishButton} type="submit" disabled={isSubmitting}>
+        <Text variant="body1">
+          {isSubmitting ? <Spinner size="small" /> : "Publish Changes"}
+        </Text>
       </button>
     </div>
   );

@@ -14,7 +14,7 @@
     "build:push": "./build-and-push.sh"
   },
   "dependencies": {
-    "@onlinefreecv/design-system": "^1.0.6",
+    "@onlinefreecv/design-system": "^1.0.9",
     "@types/react-dom": "18.2.7",
     "@vanilla-extract/css": "^1.13.0",
     "@vanilla-extract/recipes": "^0.5.0",
