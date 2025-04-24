@@ -24,6 +24,7 @@ export const withFormik = <T extends object>(
         onSubmit={onSubmit}
         validationSchema={validationSchema}
         validateOnBlur={true}
+        validateOnMount={true}
       >
         {({ values, isSubmitting }) => (
           <Form>

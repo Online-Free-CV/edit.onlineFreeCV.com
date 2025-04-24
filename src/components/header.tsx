@@ -23,6 +23,10 @@ export const Header = () => {
           <EditableField name="last_name" />
         </span>
       </Text>
-    </div>
+      <Text variant="h1">
+        <EditableField name="website_name" />
+      </Text>
+
+    </div>    
   );
 };

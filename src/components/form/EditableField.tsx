@@ -34,7 +34,7 @@ export const EditableField: React.FC<EditableFieldProps> = ({ name }) => {
     <>
       <span
         ref={editableRef}
-        placeholder={isEditing ? "Enter text..." : ""}
+        data-placeholder={`${name} Required`}
         contentEditable={isEditing}
         suppressContentEditableWarning
         onBlur={handleBlur}

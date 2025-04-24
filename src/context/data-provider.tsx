@@ -25,10 +25,17 @@ export const DataContext = createContext<IDataContextProps | undefined>(undefine
 
 export const DataProvider: React.FC<IDataProviderProps> = ({ children, user }: IDataProviderProps) => {
   const [data, setData] = useState<any>({ ...appData, ...user });
+  const [isLoading, setIsLoading] = useState<any>(true);
 
   useEffect(() => {
-    setData((prevData: any) => ({ ...prevData, ...user }));
+    debugger;
+    setIsLoading(true);
+    const {user: userData, ...rest} = user;
+    setData((prevData: any) => ({ ...prevData, ...userData }));
+    setIsLoading(false);
   }, [user]);
+
+  if(isLoading) return <>Data Loading....</>;
 
   return (
     <DataContext.Provider value={{ data, setData }}>

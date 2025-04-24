@@ -30,5 +30,5 @@ export const profileDetailsTileStyle =  style({
 
 export const profileDetailsSubTileStyle =  style({
     margin: `${tokens.space.md} 0`,
-    opacity: '0.5'
+    color: tokens.colors.gray,
 })

@@ -8,6 +8,7 @@ export const colors = {
   white: `#fff`,
   blueGray: '#F2F5F9',
   orange: '#FF9C1B',
+  gray: '#A0A0A0',
   fireEngineRed: '#E80505',
   lightGray: "#E3E3E3",
 };

@@ -62,16 +62,16 @@ globalStyle(`${switchLabel} input:checked + .${slider}::before`, {
 });
 
 globalStyle(`${switchLabel} input + .${slider}::after`, {
-  content: '"English"', // Default text inside switch
-  position: "absolute",
+  content: '"اردو"', // Default text inside switch
+  display: "block",
+  margin: '0 auto',
   left: "10px",
   color: "#000",
 });
 
 globalStyle(`${switchLabel} input:checked + .${slider}::after`, {
-  content: '"اردو"', // Urdu text inside when switched
+  content: '"English"', // Urdu text inside when switched
   position: "absolute",
   right: "10px",
-  textAlign: "right",
   color: "#fff",
 });

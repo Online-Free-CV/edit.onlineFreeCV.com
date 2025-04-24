@@ -48,13 +48,11 @@ const GooglePicker: React.FC<GooglePickerProps> = ({ setImageUrl }) => {
       return;
     }
 
-    console.log("🔵 Using OAuth Token for Picker:", accessToken);
     window.gapi.load("picker", { callback: createPicker });
   };
 
   const createPicker = () => {
     if (pickerLoaded && accessToken) {
-      console.log("📤 Initializing Google Picker with OAuth Token...");
       const picker = new window.google.picker.PickerBuilder()
         .addView(new window.google.picker.View(window.google.picker.ViewId.PHOTOS)) // ✅ Use Google Photos Picker
         .setOAuthToken(accessToken) // ✅ Use OAuth Token
@@ -69,7 +67,6 @@ const GooglePicker: React.FC<GooglePickerProps> = ({ setImageUrl }) => {
   const pickerCallback = (data: any) => {
     if (data.action === window.google.picker.Action.PICKED) {
       const file = data.docs[0];
-      console.log("📸 Selected Image:", file);
       setImageUrl(file.url);
     } else {
       console.error("❌ Google Picker closed or failed.", data);

@@ -39,4 +39,5 @@ export {
   floatingBar,
   publishButton,
   floatingBarExit,
+  dotAnimation
 } from "./floating-publish-bar.css";

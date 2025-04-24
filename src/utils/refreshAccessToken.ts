@@ -19,7 +19,6 @@ export const refreshAccessToken = async () => {
   
       const data = await response.json();
       if (data.access_token) {
-        console.log("✅ Token refreshed successfully.");
         localStorage.setItem("google_oauth_token", data.access_token);
         return data.access_token;
       } else {

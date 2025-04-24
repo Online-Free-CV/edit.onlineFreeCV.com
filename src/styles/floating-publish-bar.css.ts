@@ -23,6 +23,18 @@ const slideUp = keyframes({
   },
 });
 
+const blink = keyframes({
+  "0%": {
+    opacity: 0,
+  },
+  "50%": {
+    opacity: 1,
+  },
+  "100%": {
+    opacity: 0,
+  },
+});
+
 export const floatingBar = style({
   background: "white",
   boxShadow: tokens.boxShadow.md,
@@ -52,4 +64,9 @@ export const publishButton = style({
   minWidth: 150,
   display: "flex",
   justifyContent: "center",
+});
+
+export const dotAnimation = style({
+  display: "inline-flex",
+  animation: `${blink} 1.5s infinite`,
 });

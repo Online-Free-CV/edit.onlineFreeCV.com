@@ -52,14 +52,14 @@ export const ContactCard = () => {
   return (
     <Container variant="wrapper" direction={values.direction} className={contactCardContainerStyle}>
       <div className={contactCardWrapperStyle}>
-        <ContactCardItem label="Phone" name="phone_number">
-          <Phone />
-        </ContactCardItem>
-        <ContactCardItem label="Email" name="email">
+      <ContactCardItem label="Email" name="email">
           <Email />
         </ContactCardItem>
         <ContactCardItem label="Location" name="location">
           <Location />
+        </ContactCardItem>
+        <ContactCardItem label="Phone" name="phone_number">
+          <Phone />
         </ContactCardItem>
       </div>
     </Container>

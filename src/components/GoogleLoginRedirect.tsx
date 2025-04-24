@@ -1,11 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { GOOGLE_CLIENT_ID, REDIRECTION_URL  } from "@/configs/env";
 
 const GoogleLoginRedirect = ({ onLoginSuccess }: { onLoginSuccess: (user: any) => void }) => {
   const router = useRouter();
+  const hasRun = useRef(false);
 
   useEffect(() => {
+    if (hasRun.current) return;
+    hasRun.current = true;
+
     const storedUser = localStorage.getItem("user");
+    
     if (storedUser) {
       onLoginSuccess(JSON.parse(storedUser));
       return;
@@ -16,7 +22,6 @@ const GoogleLoginRedirect = ({ onLoginSuccess }: { onLoginSuccess: (user: any) =
     const accessToken = urlParams.get("access_token");
 
     if (accessToken) {
-      console.log("🔵 Google Access Token:", accessToken);
       fetchUserInfo(accessToken);
     } else {
       redirectToGoogle();
@@ -24,11 +29,10 @@ const GoogleLoginRedirect = ({ onLoginSuccess }: { onLoginSuccess: (user: any) =
   }, [onLoginSuccess, router]);
 
   const redirectToGoogle = () => {
-    console.log("🔴 Redirecting to Google for login...", process.env.NEXT_REDIRECTION_URL);
     const oauth2Endpoint = "https://accounts.google.com/o/oauth2/auth";
     const params = new URLSearchParams({
-      client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!,
-      redirect_uri: process.env.NEXT_REDIRECTION_URL || "http://localhost:3000", // ✅ Redirecting to the homepage
+      client_id: GOOGLE_CLIENT_ID!,
+      redirect_uri: REDIRECTION_URL!, // ✅ Redirecting to the homepage
       response_type: "token",
       scope: [
         "openid",
@@ -55,7 +59,6 @@ const GoogleLoginRedirect = ({ onLoginSuccess }: { onLoginSuccess: (user: any) =
       }
 
       const userData = await response.json();
-      console.log("✅ User Info:", userData);
 
       localStorage.setItem("google_oauth_token", JSON.stringify({ token }));
 

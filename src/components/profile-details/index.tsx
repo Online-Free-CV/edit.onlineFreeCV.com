@@ -35,29 +35,34 @@ export const ProfileCard = () => {
   const [imageUrl, setImageUrl] = useState(values.picture);
   return (
     <div className={profileCardStyle}>
+      {imageUrl ? (
       <Image
         src={imageUrl}
         width={200}
         height={200}
         className={profileImageStyle}
         alt={values.name}
+        unoptimized
       />
+      ) : (
+      <div className={profileImageStyle}>No Image</div>
+      )}
       {/* <GooglePicker setImageUrl={setImageUrl} accessToken={data.access_token} /> */}
       <div className={cx(detailsContainerStyle)}>
-        <Text
-          variant="h2"
-          className={cx(railwayTitle.className, profileDetailsTileStyle)}
-        >
-          <EditableField name="full_name" />
-        </Text>
-        <Text
-          variant="display"
-          className={cx(railwaySubTitle.className, profileDetailsSubTileStyle)}
-        >
-          <EditableField name="current_position" />
-        </Text>
-        <Socials />
-        <ContactCard />
+      <Text
+        variant="h2"
+        className={cx(railwayTitle.className, profileDetailsTileStyle)}
+      >
+        <EditableField name="full_name" />
+      </Text>
+      <Text
+        variant="display"
+        className={cx(railwaySubTitle.className, profileDetailsSubTileStyle)}
+      >
+        <EditableField name="current_position" />
+      </Text>
+      <Socials />
+      <ContactCard />
       </div>
     </div>
   );
