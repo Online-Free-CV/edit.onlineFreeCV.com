@@ -19,7 +19,7 @@ jobs:
 
       - uses: pnpm/action-setup@v2
         with:
-          version: 7.13.4
+          version: 9.15.0
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
@@ -40,3 +40,4 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NEXT_PUBLIC_GOOGLE_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_CLIENT_ID }}
           NEXT_PUBLIC_GOOGLE_API_KEY: ${{ secrets.NEXT_PUBLIC_GOOGLE_API_KEY }}
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
