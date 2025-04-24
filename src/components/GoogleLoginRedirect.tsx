@@ -29,10 +29,15 @@ const GoogleLoginRedirect = ({ onLoginSuccess }: { onLoginSuccess: (user: any) =
   }, [onLoginSuccess, router]);
 
   const redirectToGoogle = () => {
+    if (!GOOGLE_CLIENT_ID || !REDIRECTION_URL) {
+      console.error("❌ GOOGLE_CLIENT_ID or REDIRECTION_URL is not defined");
+      return;
+    }
     const oauth2Endpoint = "https://accounts.google.com/o/oauth2/auth";
+    const encodedRedirectUri = encodeURIComponent(REDIRECTION_URL!);
     const params = new URLSearchParams({
       client_id: GOOGLE_CLIENT_ID!,
-      redirect_uri: REDIRECTION_URL!, // ✅ Redirecting to the homepage
+      redirect_uri: encodedRedirectUri!, // ✅ Redirecting to the homepage
       response_type: "token",
       scope: [
         "openid",
