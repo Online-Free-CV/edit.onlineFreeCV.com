@@ -2,9 +2,14 @@ import { tokens } from "@/configs/vanilla.css";
 import { style } from "@vanilla-extract/css";
 
 export const profileCardStyle = style({
-  width: "40%",
-  minWidth:"400px",
+  width: "100%",
+  flex: 1,
   textAlign: "center",
+  '@media': {
+    'screen and (max-width: 768px)': {
+      width: '100%',
+    },
+  }
 });
 
 export const profileImageStyle = style({
@@ -25,5 +30,5 @@ export const profileDetailsTileStyle =  style({
 
 export const profileDetailsSubTileStyle =  style({
     margin: `${tokens.space.md} 0`,
-    opacity: '0.5'
+    color: tokens.colors.gray,
 })

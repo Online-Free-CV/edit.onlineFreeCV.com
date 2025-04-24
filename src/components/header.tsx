@@ -1,12 +1,10 @@
-"use client"
+"use client";
 
-import { useState } from "react";
-import { Pacifico } from "next/font/google";
-import cx from "classnames";
 import { headerStyle, headerTitleStyle } from "@/styles";
-import { Text } from "@onlinefreecv/design-system";
-import { useDataContext } from "@/context/data-provider";
-import { InputField } from "./form/InputField";
+import { Container, Text } from "@onlinefreecv/design-system";
+import cx from "classnames";
+import { Pacifico } from "next/font/google";
+import { EditableField } from "./form/EditableField";
 
 const titleFont = Pacifico({
   weight: "400",
@@ -14,21 +12,21 @@ const titleFont = Pacifico({
 });
 
 export const Header = () => {
-  const [isEditing, setIsEditing] = useState(false);
-  const { data } = useDataContext();
+
   return (
-    <div className={cx(titleFont.className, headerStyle)} onClick={() => setIsEditing(true)}>
-      {isEditing ? (
-        <>
-        <InputField label="First Name" name="first_name" />
-        <InputField label="Last Name" name="last_name" />
-        </>
-      ) : (
-        <Text variant="h1">
-          {data.first_name} <span className={headerTitleStyle}>{data.last_name}</span>
-        </Text>)
-      }
-      <div></div>
-    </div>
+    <div
+      className={cx(titleFont.className, headerStyle)}
+    >
+      <Text variant="h1">
+        <EditableField name="first_name"/>{" "}
+        <span className={headerTitleStyle}>
+          <EditableField name="last_name" />
+        </span>
+      </Text>
+      <Text variant="h1">
+        <EditableField name="website_name" />
+      </Text>
+
+    </div>    
   );
 };

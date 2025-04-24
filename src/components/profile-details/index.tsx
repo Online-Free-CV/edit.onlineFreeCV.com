@@ -17,6 +17,8 @@ import { Text } from "@onlinefreecv/design-system";
 import { useDataContext } from "@/context/data-provider";
 import { useState } from "react";
 import GooglePicker from "../GooglePicker";
+import { useFormikContext } from "formik";
+import { EditableField } from "../form/EditableField";
 
 const railwayTitle = Raleway({
   weight: "600",
@@ -29,34 +31,38 @@ const railwaySubTitle = Raleway({
 });
 
 export const ProfileCard = () => {
-  const { data } = useDataContext();
-  const [imageUrl, setImageUrl] = useState(data.picture);
-
+  const { values } = useFormikContext<any>();
+  const [imageUrl, setImageUrl] = useState(values.picture);
   return (
     <div className={profileCardStyle}>
+      {imageUrl ? (
       <Image
         src={imageUrl}
         width={200}
         height={200}
         className={profileImageStyle}
-        alt={data.name}
+        alt={values.name}
+        unoptimized
       />
+      ) : (
+      <div className={profileImageStyle}>No Image</div>
+      )}
       {/* <GooglePicker setImageUrl={setImageUrl} accessToken={data.access_token} /> */}
       <div className={cx(detailsContainerStyle)}>
-        <Text
-          variant="h2"
-          className={cx(railwayTitle.className, profileDetailsTileStyle)}
-        >
-          {data.name}
-        </Text>
-        <Text
-          variant="display"
-          className={cx(railwaySubTitle.className, profileDetailsSubTileStyle)}
-        >
-          {data.current_position}
-        </Text>
-        <Socials />
-        <ContactCard />
+      <Text
+        variant="h2"
+        className={cx(railwayTitle.className, profileDetailsTileStyle)}
+      >
+        <EditableField name="full_name" />
+      </Text>
+      <Text
+        variant="display"
+        className={cx(railwaySubTitle.className, profileDetailsSubTileStyle)}
+      >
+        <EditableField name="current_position" />
+      </Text>
+      <Socials />
+      <ContactCard />
       </div>
     </div>
   );

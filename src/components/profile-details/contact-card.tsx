@@ -12,6 +12,9 @@ import { Raleway } from "next/font/google";
 import cx from "classnames";
 import { Text } from "@onlinefreecv/design-system";
 import { useDataContext } from "@/context/data-provider";
+import { EditableField } from "../form/EditableField";
+import { Container } from "@onlinefreecv/design-system";
+import { useFormikContext } from "formik";
 
 const raleway = Raleway({
   weight: "500",
@@ -21,14 +24,16 @@ const raleway = Raleway({
 interface IContactCardItemProps {
   children: React.ReactNode;
   label: string;
-  data: string;
+  name: string;
 }
 
 export const ContactCardItem: React.FC<IContactCardItemProps> = ({
   children,
   label,
-  data,
-}: IContactCardItemProps) => (
+  name,
+}: IContactCardItemProps) => {
+  const {values} = useFormikContext<any>();
+  return(
   <div className={contactCardStyle}>
     {children}
     <div className={cx(contactCardDataStyle, raleway.className)}>
@@ -36,27 +41,27 @@ export const ContactCardItem: React.FC<IContactCardItemProps> = ({
         {label}
       </Text>
       <Text variant="body1" className={cx(raleway.className)}>
-        {data}
+        <EditableField name={name} />
       </Text>
     </div>
   </div>
-);
+)};
 
 export const ContactCard = () => {
-  const {data} = useDataContext();
+  const {values} = useFormikContext<any>();
   return (
-    <div className={contactCardContainerStyle}>
+    <Container variant="wrapper" direction={values.direction} className={contactCardContainerStyle}>
       <div className={contactCardWrapperStyle}>
-        <ContactCardItem label="Phone" data={data.phone_number}>
-          <Phone />
-        </ContactCardItem>
-        <ContactCardItem label="Email" data={data.email}>
+      <ContactCardItem label="Email" name="email">
           <Email />
         </ContactCardItem>
-        <ContactCardItem label="Location" data={data.location}>
+        <ContactCardItem label="Location" name="location">
           <Location />
         </ContactCardItem>
+        <ContactCardItem label="Phone" name="phone_number">
+          <Phone />
+        </ContactCardItem>
       </div>
-    </div>
+    </Container>
   );
 };

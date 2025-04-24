@@ -1,7 +1,7 @@
 import { sectionDetailsTitleStyle } from "@/styles";
 import { Poppins } from "next/font/google";
 import cx from "classnames";
-import { Text } from "@/components/text";
+import { Container, Text } from "@onlinefreecv/design-system";
 
 const poppins = Poppins({
   weight: "500",
@@ -12,8 +12,10 @@ interface ITitleProps {
   title: string;
 }
 export const Title = ({ title }: ITitleProps) => (
-  <Text variant="h1" className={cx(sectionDetailsTitleStyle, poppins.className)}>
-    {title}
+  <div className={cx(sectionDetailsTitleStyle, poppins.className)}>
+    <Text variant="h1" >
+      {title}
+    </Text>
     <span></span>
-  </Text>
+  </div>
 );

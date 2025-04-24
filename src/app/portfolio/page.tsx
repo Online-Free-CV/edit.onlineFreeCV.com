@@ -3,7 +3,7 @@ import { sectionDetailsStyle } from "@/styles";
 export default function Portfolio() {
   return (
     <div className={sectionDetailsStyle}>
-   <Title title="Portfolio"/>
+      <Title title="Portfolio"/>
     
   </div>
   )
