@@ -28,7 +28,6 @@ export const DataProvider: React.FC<IDataProviderProps> = ({ children, user }: I
   const [isLoading, setIsLoading] = useState<any>(true);
 
   useEffect(() => {
-    debugger;
     setIsLoading(true);
     const {user: userData, ...rest} = user;
     setData((prevData: any) => ({ ...prevData, ...userData }));
